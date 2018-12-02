@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,6 +10,9 @@ public class InputManager : MonoBehaviour {
     public float rotateAmount;
     
     private Quaternion rotation;
+
+    public Ray ray;
+    public RaycastHit hit;
 
     private float panDetect = 15f;
     private float minHeight = 10f;
@@ -22,6 +26,9 @@ public class InputManager : MonoBehaviour {
     private float yPos;
 
     private Vector3 m_newPos;
+
+    public GameObject selectedObject;
+    private ObjectInfo selectedInfo;
     
 
 	void Start () {
@@ -40,7 +47,35 @@ public class InputManager : MonoBehaviour {
         {
             Camera.main.transform.rotation = rotation;
         }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            LeftClick();
+        }
 	}
+
+    public void LeftClick()
+    {
+        ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+        if (Physics.Raycast(ray, out hit, 100))
+        {
+            if(hit.collider.tag == "Ground")
+            {
+                selectedObject = null;
+                Debug.Log(selectedObject);
+
+                selectedInfo.isSelected = false;
+            }
+            else if(hit.collider.tag == "Selectable")
+            {
+                selectedObject = hit.collider.gameObject;
+                selectedInfo = selectedObject.GetComponent<ObjectInfo>();
+
+                selectedInfo.isSelected = true;
+            }
+        }
+    }
 
     void MoveCamera()
     {

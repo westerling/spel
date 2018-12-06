@@ -17,6 +17,21 @@ public class ResourceManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+        if(gold >= maxResources)
+        {
+            gold = maxResources;
+        }
+        if (stone >= maxResources)
+        {
+            stone = maxResources;
+        }
+        if (wood >= maxResources)
+        {
+            wood = maxResources;
+        }
+        if (food >= maxResources)
+        {
+            food = maxResources;
+        }
+    }
 }

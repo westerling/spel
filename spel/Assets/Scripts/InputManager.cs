@@ -60,19 +60,22 @@ public class InputManager : MonoBehaviour {
 
         if (Physics.Raycast(ray, out hit, 100))
         {
-            if(hit.collider.tag == "Ground")
+            switch (hit.collider.tag)
             {
-                selectedObject = null;
-                Debug.Log(selectedObject);
+                case "Ground":
+                    selectedObject = null;
 
-                selectedInfo.isSelected = false;
-            }
-            else if(hit.collider.tag == "Selectable")
-            {
-                selectedObject = hit.collider.gameObject;
-                selectedInfo = selectedObject.GetComponent<ObjectInfo>();
+                    selectedInfo.isSelected = false;
+                    break;
+                case "Selectable":
+                    selectedObject = hit.collider.gameObject;
+                    selectedInfo = selectedObject.GetComponent<ObjectInfo>();
 
-                selectedInfo.isSelected = true;
+                    selectedInfo.isSelected = true;
+                    break;
+                default:
+                    selectedObject = null;
+                    break;
             }
         }
     }

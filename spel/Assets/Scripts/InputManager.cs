@@ -63,6 +63,7 @@ public class InputManager : MonoBehaviour {
             switch (hit.collider.tag)
             {
                 case "Ground":
+                    selectedInfo.isSelected = false;
                     selectedObject = null;
 
                     selectedInfo.isSelected = false;

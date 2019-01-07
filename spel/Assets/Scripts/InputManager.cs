@@ -25,9 +25,17 @@ public class InputManager : MonoBehaviour {
     private float xPos;
     private float yPos;
 
+    private Vector2 boxStart;
+    private Vector2 boxEnd;
     private Vector3 m_newPos;
 
     public GameObject selectedObject;
+    private GameObject[] units;
+
+    private Rect selectBox;
+
+    public Texture boxTexture;
+
     private ObjectInfo selectedInfo;
     
 
@@ -52,7 +60,43 @@ public class InputManager : MonoBehaviour {
         {
             LeftClick();
         }
+
+        if (Input.GetMouseButton(0) && boxStart == Vector2.zero)
+        {
+            boxStart = Input.mousePosition;
+        }
+        else if (Input.GetMouseButton(0) && boxStart!= Vector2.zero)
+        {
+            boxEnd = Input.mousePosition;
+        }
+
+        if(Input.GetMouseButtonUp(0))
+        {
+            units = GameObject.FindGameObjectsWithTag("Selectable");
+            MultiSelect();
+           
+        }
+
+        selectBox = new Rect(boxStart.x, Screen.height - boxStart.y, boxEnd.x - boxStart.x, -1 * ((Screen.height - boxStart.y) - (Screen.height - boxEnd.y)));
 	}
+
+    public void MultiSelect()
+    {
+        foreach(GameObject unit in units)
+        {
+            if (unit.GetComponent<ObjectInfo>().isUnit)
+            {
+                Vector2 unitPos = Camera.main.WorldToScreenPoint(unit.transform.position);
+
+                if(selectBox.Contains(unitPos, true))
+                {
+                    unit.GetComponent<ObjectInfo>().isSelected = true;
+                }
+            }
+        }
+        boxStart = Vector2.zero;
+        boxEnd = Vector2.zero;
+    }
 
     public void LeftClick()
     {
@@ -134,6 +178,14 @@ public class InputManager : MonoBehaviour {
         if(destination != origin)
         {
             Camera.main.transform.eulerAngles = Vector3.MoveTowards(origin, destination, Time.deltaTime * rotateSpeed);
+        }
+    }
+
+    private void OnGUI()
+    {
+        if (boxStart != Vector2.zero && boxEnd != Vector2.zero)
+        {
+            GUI.DrawTexture(selectBox, boxTexture);
         }
     }
 }

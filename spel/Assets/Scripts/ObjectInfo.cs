@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class ObjectInfo : MonoBehaviour {
     
     public bool isSelected = false;
+    public bool isUnit;
     public string objectname;
     public int maxHealth;
     public int health;
@@ -18,6 +19,7 @@ public class ObjectInfo : MonoBehaviour {
     public Text atkDisplay;
     public Text pArmkDisplay;
     public Text hArmDisplay;
+    public GameObject selectionIndicator;
     public GameObject iconCam;
     public CanvasGroup InfoPanel;
 
@@ -33,10 +35,13 @@ public class ObjectInfo : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update ()  {
+        selectionIndicator.SetActive(isSelected);
+
         if(health <= 0)
         {
             Destroy(gameObject);
         }
+
         healthBar.maxValue = maxHealth;
         healthBar.value = health;
 

@@ -53,8 +53,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4079242339957276}
-  - component: {fileID: 23550687588322832}
-  - component: {fileID: 208811362435478186}
   - component: {fileID: 65855367608887830}
   m_Layer: 0
   m_Name: WoodStation
@@ -88,6 +86,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4445791169573734}
+  - component: {fileID: 23967689577330808}
+  - component: {fileID: 208026204706732926}
   m_Layer: 0
   m_Name: WoodStation
   m_TagString: Untagged
@@ -303,12 +303,12 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!23 &23550687588322832
+--- !u!23 &23965817304184056
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1506138061558812}
+  m_GameObject: {fileID: 1766831313026322}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -317,7 +317,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100016, guid: ea9834c2fae17ec4a809093baf4aa031, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -337,12 +337,12 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!23 &23965817304184056
+--- !u!23 &23967689577330808
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1766831313026322}
+  m_GameObject: {fileID: 1839039683644566}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -351,7 +351,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100016, guid: ea9834c2fae17ec4a809093baf4aa031, type: 3}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -409,20 +409,20 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 5.37, y: 2.62, z: 4.26}
+  m_Size: {x: 5.81, y: 3.59, z: 5.09}
   m_Center: {x: 0, y: 1.31, z: 0}
---- !u!208 &208811362435478186
+--- !u!208 &208026204706732926
 NavMeshObstacle:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1506138061558812}
+  m_GameObject: {fileID: 1839039683644566}
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 1
-  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_Extents: {x: 3.795, y: 1.94, z: 3.51}
   m_MoveThreshold: 0.1
   m_Carve: 0
   m_CarveOnlyStationary: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0, z: -1.21}
   m_TimeToStationary: 0.5

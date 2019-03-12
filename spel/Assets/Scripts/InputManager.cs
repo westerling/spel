@@ -14,7 +14,6 @@ public class InputManager : MonoBehaviour {
     public Ray ray;
     public RaycastHit hit;
 
-    private float panDetect = 15f;
     private float minHeight = 10f;
     private float maxHeight = 100f;
     private float m_panDetect = 15f;
@@ -49,7 +48,7 @@ public class InputManager : MonoBehaviour {
 	void Update () {
 
         MoveCamera();
-        RotateCamera();
+        //RotateCamera();
 
         if(Input.GetKeyDown(KeyCode.Space))
         {
@@ -91,6 +90,8 @@ public class InputManager : MonoBehaviour {
                 if(selectBox.Contains(unitPos, true))
                 {
                     unit.GetComponent<ObjectInfo>().isSelected = true;
+                    selectedInfo = unit.GetComponent<ObjectInfo>();
+                    Debug.Log(unit.GetComponent<ObjectInfo>().objectname + " is selected");
                 }
             }
         }
@@ -107,12 +108,17 @@ public class InputManager : MonoBehaviour {
             switch (hit.collider.tag)
             {
                 case "Ground":
-                    selectedInfo.isSelected = false;
                     selectedObject = null;
+                    if (selectedInfo == null)
+                    {
+                        return;
+                    }
 
                     selectedInfo.isSelected = false;
-                    break;
+                    UnselectAll();
+                        break;
                 case "Selectable":
+                    UnselectAll();
                     selectedObject = hit.collider.gameObject;
                     selectedInfo = selectedObject.GetComponent<ObjectInfo>();
 
@@ -186,6 +192,18 @@ public class InputManager : MonoBehaviour {
         if (boxStart != Vector2.zero && boxEnd != Vector2.zero)
         {
             GUI.DrawTexture(selectBox, boxTexture);
+        }
+    }
+
+    private void UnselectAll()
+    {
+        if (units == null || units.Length < 1)
+        {
+            return;
+        }
+        foreach (GameObject unit in units)
+        {
+            unit.GetComponent<ObjectInfo>().isSelected = false;
         }
     }
 }

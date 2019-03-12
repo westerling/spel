@@ -20,10 +20,10 @@ MonoBehaviour:
     y: 30
     width: 1920
     height: 947
-  m_MinSize: {x: 581, y: 450}
-  m_MaxSize: {x: 14002, y: 14021}
+  m_MinSize: {x: 581, y: 471}
+  m_MaxSize: {x: 14004, y: 14042}
   vertical: 0
-  controlID: 4102
+  controlID: 559
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -121,10 +121,10 @@ MonoBehaviour:
     y: 0
     width: 1570
     height: 947
-  m_MinSize: {x: 304, y: 450}
-  m_MaxSize: {x: 10000, y: 14021}
+  m_MinSize: {x: 304, y: 471}
+  m_MaxSize: {x: 10002, y: 14042}
   vertical: 1
-  controlID: 4103
+  controlID: 560
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -148,7 +148,7 @@ MonoBehaviour:
   m_MinSize: {x: 304, y: 200}
   m_MaxSize: {x: 8004, y: 4021}
   vertical: 0
-  controlID: 4079
+  controlID: 523
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -203,9 +203,9 @@ MonoBehaviour:
   m_PersistentViewDataDictionary: {fileID: 0}
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 2c280000
+    m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 1c1bffff72fbffff9efbffff000000009a2800004c290000
+    m_ExpandedIDs: 9efbffff00000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -290,9 +290,9 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -2.4460077, y: -0.8143735, z: 5.541139}
+    m_Target: {x: -5.6054163, y: -10.824713, z: 0.43471146}
     speed: 2
-    m_Value: {x: -2.4460077, y: -0.8143735, z: 5.541139}
+    m_Value: {x: -5.6054163, y: -10.824713, z: 0.43471146}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -316,13 +316,13 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: 0.17282152, y: 0.40438622, z: -0.07811111, w: 0.8947084}
+    m_Target: {x: 0.36790594, y: 0.01533743, z: -0.00606934, w: 0.9297167}
     speed: 2
-    m_Value: {x: 0.17282154, y: 0.40438622, z: -0.07811111, w: 0.89470845}
+    m_Value: {x: -0.36790594, y: -0.01533743, z: 0.00606934, w: -0.9297167}
   m_Size:
-    m_Target: 14.136667
+    m_Target: 58.020016
     speed: 2
-    m_Value: 14.136667
+    m_Value: 58.020016
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -504,19 +504,19 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/Prefabs
+    - Assets/Scripts
   m_ViewMode: 1
   m_StartGridSize: 48
   m_LastFolders:
-  - Assets/Prefabs
+  - Assets/Scripts
   m_LastFoldersGridSize: 48
   m_LastProjectPath: C:\Users\kunge\Documents\GitHub\spel\spel
   m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 46280000
-    m_LastClickedID: 10310
-    m_ExpandedIDs: 00000000902700005828000000ca9a3bffffff7f
+    m_SelectedIDs: 9c270000
+    m_LastClickedID: 10140
+    m_ExpandedIDs: 00000000922700007628000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -544,7 +544,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: b0360000
     m_LastClickedID: 14000
-    m_ExpandedIDs: 00000000902700005828000000ca9a3bffffff7f
+    m_ExpandedIDs: 00000000922700007628000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -569,10 +569,10 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 2c280000
-    m_LastClickedInstanceID: 10284
+    m_SelectedInstanceIDs: 
+    m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 0
-    m_ExpandedInstanceIDs: 26220000382200003a220000ce240000a0fafeff1e220000202200004827000052230000de7d000090230000e425000092240000767dfcff38260000e82700007423000024220000082400007a2300001e2300004a0800003c2500008e2c000086110000a648000096300000f62f0000803700000a2e00001e470000d0370000d8340000543700009237000006350000b23700005237000058370000000000002c280000
+    m_ExpandedInstanceIDs: 26220000382200003a220000ce240000a0fafeff1e220000202200004827000052230000de7d000090230000e425000092240000767dfcff38260000e82700007423000024220000082400007a2300001e2300004a0800003c2500008e2c000086110000a648000096300000f62f0000803700000a2e00001e470000d0370000d8340000543700009237000006350000b2370000523700005837000000000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 

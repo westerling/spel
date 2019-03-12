@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Villager : MonoBehaviour {
+public class Villager : BaseUnitModel {
 
     public TaskList task;
     public ResourceManager RM;
     public NodeManager.ResourceTypes heldRecoursesType;
     public bool isGathering = false;
+    public bool isGatherer = false;
     public int heldResource;
     public int maxHeldResource;
   
@@ -17,6 +18,7 @@ public class Villager : MonoBehaviour {
 
     GameObject targetNode;
     GameObject[] drops;
+    Vector3 offset;
 
     private Ray ray;
     private RaycastHit hit;
@@ -25,18 +27,32 @@ public class Villager : MonoBehaviour {
         StartCoroutine(GatherTick());
         agent = GetComponent<NavMeshAgent>();
         AL = FindObjectOfType<ActionList>();
+        task = TaskList.Idle;
     }
 	
 	// Update is called once per frame
 	void Update () {
+        if (task == TaskList.Gathering)
+        {
+            offset = targetNode.transform.position - transform.position;
+            distanceToTarget = offset.sqrMagnitude;
+
+            if (distanceToTarget <= 3.5f * 3.5f)
+            {
+                Gather();
+            }
+        }
+
         if (targetNode == null)
         {
             if (heldResource != 0)
             {
                 drops = GameObject.FindGameObjectsWithTag("Drops");
                 agent.destination = GetClosestDropOff(drops).transform.position;
+                offset = GetClosestDropOff(drops).transform.position - transform.position;
+                distanceToTarget = offset.sqrMagnitude;
                 drops = null;
-                task = TaskList.Delivvering;
+                task = TaskList.Delivering;
             }
             else
             {
@@ -46,10 +62,8 @@ public class Villager : MonoBehaviour {
 
         if (heldResource >= maxHeldResource)
         {
-            drops = GameObject.FindGameObjectsWithTag("Drops");
-            agent.destination = GetClosestDropOff(drops).transform.position;
-            drops = null;
-            task = TaskList.Delivvering;
+            
+            DeliverResource();
         }
 
         if (Input.GetMouseButton(1) && GetComponent<ObjectInfo>().isSelected)
@@ -83,55 +97,50 @@ public class Villager : MonoBehaviour {
         {
             if (hit.collider.tag == "Ground")
             {
+                if(targetNode != null)
+                {
+                    targetNode.GetComponent<NodeManager>().gatherers--;
+                }
+                isGathering = false;
                 AL.Move(agent, hit);
                 task = TaskList.Moving;
             }
+
             else if (hit.collider.tag == "Resource")
             {
                 AL.Move(agent, hit);
                 task = TaskList.Gathering;
                 targetNode = hit.collider.gameObject;
             }
-        }
-    }
-
-    public void OnTriggerEnter(Collider other)
-    {
-        GameObject hitObject = other.gameObject;
-
-        if (hitObject.tag == "Resource" && task == TaskList.Gathering)
-        {
-            isGathering = true;
-            hitObject.GetComponent<NodeManager>().gatherers++;
-            heldRecoursesType = hitObject.GetComponent<NodeManager>().resourceType;
-        }
-        else if (hitObject.tag == "Drops" && task == TaskList.Delivvering)
-        {
-            if (RM.stone >= RM.maxResources)
+            else if (hit.collider.tag == "Drops")
             {
-                task = TaskList.Idle;
-            }
-            else
-            {
-                RM.stone += heldResource;
-                heldResource = 0;
-                task = TaskList.Gathering;
-                agent.destination = targetNode.transform.position;
+                DeliverResource();
             }
         }
     }
 
-    public void OnTriggerExit(Collider other)
+    public void Gather()
     {
-        GameObject hitObject = other.gameObject;
-
-        switch (hitObject.tag)
+        isGathering = true;
+        
+        if (!isGatherer)
         {
-            case "Resource":
-                hitObject.GetComponent<NodeManager>().gatherers--;
-                isGathering = false;
-                break;
+            targetNode.GetComponent<NodeManager>().gatherers++;
+            isGatherer = true;
         }
+        heldRecoursesType = targetNode.GetComponent<NodeManager>().resourceType;
+    }
+
+    private void DeliverResource()
+    {
+        targetNode.GetComponent<NodeManager>().gatherers--;
+        isGathering = false;
+        drops = GameObject.FindGameObjectsWithTag("Drops");
+        agent.destination = GetClosestDropOff(drops).transform.position;
+        offset = GetClosestDropOff(drops).transform.position - transform.position;
+        distanceToTarget = offset.sqrMagnitude;
+        drops = null;
+        task = TaskList.Delivering;
     }
 
     IEnumerator GatherTick()

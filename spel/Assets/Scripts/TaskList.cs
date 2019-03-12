@@ -9,5 +9,5 @@ public enum TaskList {
     Idle,
     Building,
     Attacking,
-    Delivvering
+    Delivering
 }

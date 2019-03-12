@@ -19,10 +19,7 @@ public class ResourceManager : MonoBehaviour {
     public Text stoneDisplay;
     public Text woodDisplay;
     public Text popDisplay;
-    // Use this for initialization
-    void Start () {
-		
-	}
+
 	
 	// Update is called once per frame
 	void Update () {

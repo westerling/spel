@@ -336,7 +336,7 @@
     </member>
     <member name="P:UnityEngine.EventSystems.EventSystem.isFocused">
       <summary>
-        <para>Flag to say weather the EventSystem thinks it should be paused or not based upon focused state.</para>
+        <para>Flag to say whether the EventSystem thinks it should be paused or not based upon focused state.</para>
       </summary>
     </member>
     <member name="P:UnityEngine.EventSystems.EventSystem.pixelDragThreshold">
@@ -713,7 +713,7 @@
     </member>
     <member name="T:UnityEngine.EventSystems.ExecuteEvents.EventFunction_1">
       <summary>
-        <para>Funtion definition for an EventFunction that is used to map a given EventInterface into a specific event call.</para>
+        <para>Function definition for an EventFunction that is used to map a given EventInterface into a specific event call.</para>
       </summary>
       <param name="handler"></param>
       <param name="eventData"></param>
@@ -1089,7 +1089,7 @@
     </member>
     <member name="P:UnityEngine.EventSystems.PointerEventData.pointerDrag">
       <summary>
-        <para>The object that is receiving 'OnDrag'.</para>
+        <para>The object that is receiving OnDrag.</para>
       </summary>
     </member>
     <member name="P:UnityEngine.EventSystems.PointerEventData.pointerEnter">
@@ -1785,7 +1785,7 @@
     </member>
     <member name="P:UnityEngine.UI.Button.onClick">
       <summary>
-        <para>UnityEvent that is triggered when the button is pressed.</para>
+        <para>UnityEvent that is triggered when the Button is pressed.</para>
       </summary>
     </member>
     <member name="T:UnityEngine.UI.Button.ButtonClickedEvent">
@@ -2588,7 +2588,7 @@ If you have modified the list of options, you should call this method afterwards
     </member>
     <member name="P:UnityEngine.UI.FontData.defaultFontData">
       <summary>
-        <para>Get a font data with sensible defaults.</para>
+        <para>Maintain a list of all the FontData features.</para>
       </summary>
     </member>
     <member name="P:UnityEngine.UI.FontData.font">
@@ -2746,6 +2746,11 @@ If you have modified the list of options, you should call this method afterwards
     <member name="M:UnityEngine.UI.Graphic.LayoutComplete">
       <summary>
         <para>See ICanvasElement.LayoutComplete.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEngine.UI.Graphic.OnCullingChanged">
+      <summary>
+        <para>Callback function to call when the culling has changed.</para>
       </summary>
     </member>
     <member name="M:UnityEngine.UI.Graphic.OnDisable">
@@ -4910,7 +4915,7 @@ Characters 0-9, . (dot), and - (dash / minus sign) are allowed. The dash is only
     </member>
     <member name="M:UnityEngine.UI.Scrollbar.OnBeginDrag(UnityEngine.EventSystems.PointerEventData)">
       <summary>
-        <para>Handling for when the scrollbar value is begin being dragged.</para>
+        <para>Handling for when the scrollbar value is beginning to be dragged.</para>
       </summary>
       <param name="eventData"></param>
     </member>
@@ -5154,9 +5159,9 @@ Characters 0-9, . (dot), and - (dash / minus sign) are allowed. The dash is only
     </member>
     <member name="M:UnityEngine.UI.ScrollRect.OnBeginDrag(UnityEngine.EventSystems.PointerEventData)">
       <summary>
-        <para>Handling for when the content is beging being dragged.</para>
+        <para>Handling for when the content is being dragged.</para>
       </summary>
-      <param name="eventData"></param>
+      <param name="eventData">The values used when the drag is started.</param>
     </member>
     <member name="M:UnityEngine.UI.ScrollRect.OnDisable">
       <summary>
@@ -5298,7 +5303,7 @@ Characters 0-9, . (dot), and - (dash / minus sign) are allowed. The dash is only
     </member>
     <member name="P:UnityEngine.UI.Selectable.interactable">
       <summary>
-        <para>UI.Selectable.interactable.</para>
+        <para>Use to enable or disable the ability to select a selectable UI element (for example, a Button).</para>
       </summary>
     </member>
     <member name="P:UnityEngine.UI.Selectable.navigation">

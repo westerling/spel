@@ -17,4 +17,9 @@ public class ActionList : MonoBehaviour {
         task = TaskList.Gathering;
         targetNode = hit.collider.gameObject;
     }
+
+    public void attack(NavMeshAgent agent, RaycastHit hit, TaskList task, GameObject targetNode)
+    {
+
+    }
 }

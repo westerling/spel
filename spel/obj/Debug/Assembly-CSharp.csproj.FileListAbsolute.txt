@@ -1,0 +1,2 @@
+C:\Users\kunge\Documents\GitHub\spel\spel\obj\Debug\Assembly-CSharp.csprojAssemblyReference.cache
+C:\Users\kunge\Documents\GitHub\spel\spel\obj\Debug\Assembly-CSharp.csproj.CoreCompileInputs.cache

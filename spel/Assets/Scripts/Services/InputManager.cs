@@ -28,8 +28,10 @@ public class InputManager : MonoBehaviour {
     private Vector2 boxEnd;
     private Vector3 m_newPos;
 
+
     public GameObject selectedObject;
-    private GameObject[] units;
+
+    private GameObject[] selectedUnits;
 
     private Rect selectBox;
 
@@ -71,27 +73,26 @@ public class InputManager : MonoBehaviour {
 
         if(Input.GetMouseButtonUp(0))
         {
-            units = GameObject.FindGameObjectsWithTag("Selectable");
+            selectedUnits = GameObject.FindGameObjectsWithTag("Selectable");
             MultiSelect();
-           
         }
 
         selectBox = new Rect(boxStart.x, Screen.height - boxStart.y, boxEnd.x - boxStart.x, -1 * ((Screen.height - boxStart.y) - (Screen.height - boxEnd.y)));
-	}
+    }
 
     public void MultiSelect()
     {
-        foreach(GameObject unit in units)
+        foreach(GameObject unit in selectedUnits)
         {
-            if (unit.GetComponent<ObjectInfo>().isUnit)
+            if (unit.GetComponent<ObjectInfo>().objectType == ObjectTypeList.Unit)
             {
                 Vector2 unitPos = Camera.main.WorldToScreenPoint(unit.transform.position);
 
                 if(selectBox.Contains(unitPos, true))
                 {
+                    Debug.Log("Selection box contains: " + unit.name);
                     unit.GetComponent<ObjectInfo>().isSelected = true;
                     selectedInfo = unit.GetComponent<ObjectInfo>();
-                    Debug.Log(unit.GetComponent<ObjectInfo>().objectname + " is selected");
                 }
             }
         }
@@ -197,11 +198,11 @@ public class InputManager : MonoBehaviour {
 
     private void UnselectAll()
     {
-        if (units == null || units.Length < 1)
+        if (selectedUnits == null || selectedUnits.Length < 1)
         {
             return;
         }
-        foreach (GameObject unit in units)
+        foreach (GameObject unit in selectedUnits)
         {
             unit.GetComponent<ObjectInfo>().isSelected = false;
         }

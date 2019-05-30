@@ -1,32 +1,36 @@
 ﻿using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 
 public class ObjectInfo : MonoBehaviour {
-    
-    public bool isSelected = false;
-    public ObjectTypeList objectType;
 
+    [Header("Unit stats")]
     public string objectname;
 
-    public float maxHealth;
-    public float health;
-    public float atk;
-    public float hArm;
-    public float pArm;
+    public bool isSelected = false;
 
-    public float buildTime;
+    public ObjectTypeList objectType;
+
+    public int maxHealth;
+    public int health;
+    public int populationCost;
+
+    public Cost cost;
 
     GameObject targetNode;
     GameObject[] drops;
-
-    StateModifier[] upgrades;
 
     public Team unitTeam;
 
     private ActionList AL;
 
-	
-	// Update is called once per frame
-	void Update ()  {
+    [Header("Unit Attributes")]
+    public List<UnitAttributes> Attributes = new List<UnitAttributes>();
+
+    [Header("Player Attributes")]
+    public List<UnitAttributes> Upgrades = new List<UnitAttributes>();
+
+    void Update ()  {
 
         if(health <= 0)
         {

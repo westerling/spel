@@ -27,7 +27,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1435986213300616
 GameObject:
   m_ObjectHideFlags: 0
@@ -55,7 +55,6 @@ GameObject:
   - component: {fileID: 4457968073748164}
   - component: {fileID: 114639873903062944}
   - component: {fileID: 114484058575628168}
-  - component: {fileID: 114943282118975508}
   - component: {fileID: 114330482185386198}
   - component: {fileID: 114835705041327180}
   - component: {fileID: 136501626563780898}
@@ -84,7 +83,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4063854558450642
 Transform:
   m_ObjectHideFlags: 1
@@ -117,8 +116,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1529617375677894}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.63038, y: 0.5, z: 3.7291918}
+  m_LocalRotation: {x: -0, y: -0.9321931, z: -0, w: 0.36196148}
+  m_LocalPosition: {x: -17.626028, y: 0.6233334, z: 6.6094875}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4063854558450642}
@@ -295,16 +294,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95edc748e2dc29e4cb6fbe59054bdd80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectname: Villager
   isSelected: 0
   objectType: 0
-  objectname: Villager
-  maxHealth: 0
+  maxHealth: 20
   health: 20
-  atk: 4
-  hArm: 1
-  pArm: 1
-  buildTime: 0
+  populationCost: 2
+  cost:
+    gold: 0
+    wood: 0
+    food: 0
+    stone: 0
   unitTeam: 0
+  Attributes:
+  - attribute: {fileID: 11400000, guid: 5458655aa34a89b4a8cea750b3f8d851, type: 2}
+    amount: 4
+  - attribute: {fileID: 11400000, guid: 8c26066dea148624f8b76189a5779349, type: 2}
+    amount: 2
+  - attribute: {fileID: 11400000, guid: 6f3330e420761a543ba04669e52979df, type: 2}
+    amount: 1
+  - attribute: {fileID: 11400000, guid: e502d83c99ba6bf419596083945ed4d5, type: 2}
+    amount: 3
+  - attribute: {fileID: 11400000, guid: 5f09d8eab6ee0ef44a34c2a23ba9edd9, type: 2}
+    amount: 25
+  Upgrades: []
 --- !u!114 &114639873903062944
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -318,8 +331,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   distanceToTarget: 0
   task: 2
+  objectInfo: {fileID: 114484058575628168}
   actionList: {fileID: 114330482185386198}
   agent: {fileID: 195124920711594082}
+  upgradeHandler: {fileID: 0}
   resourceManager: {fileID: 0}
   heldRecoursesType: 0
   heldResource: 0
@@ -349,21 +364,6 @@ MonoBehaviour:
   selectionIndicator: {fileID: 1248134459182526}
   iconCam: {fileID: 1656043483511904}
   InfoPanel: {fileID: 0}
---- !u!114 &114943282118975508
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1529617375677894}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b932e780a980f2148970f9dc9455924f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  distanceToTarget: 0
-  task: 0
-  actionList: {fileID: 114330482185386198}
-  agent: {fileID: 195124920711594082}
 --- !u!124 &124539794166742242
 Behaviour:
   m_ObjectHideFlags: 1

@@ -5,11 +5,9 @@ using UnityEngine;
 using UnityEngine.AI;
 
 public class Villager : BaseUnitModel
-{
-
-    
+{    
     public ResourceManager resourceManager;
-    public NodeManager.ResourceTypes heldRecoursesType;
+    public ResourceScript.ResourceTypes heldRecoursesType;
 
     public int heldResource;
     public int maxHeldResource;
@@ -55,19 +53,19 @@ public class Villager : BaseUnitModel
                 Debug.Log("dropping off");
                 switch (heldRecoursesType)
                 {
-                    case NodeManager.ResourceTypes.Food:
+                    case ResourceScript.ResourceTypes.Food:
                         resourceManager.food += heldResource;
                         DroppingOff();
                         break;
-                    case NodeManager.ResourceTypes.Gold:
+                    case ResourceScript.ResourceTypes.Gold:
                         resourceManager.gold += heldResource;
                         DroppingOff();
                         break;
-                    case NodeManager.ResourceTypes.Stone:
+                    case ResourceScript.ResourceTypes.Stone:
                         resourceManager.stone += heldResource;
                         DroppingOff();
                         break;
-                    case NodeManager.ResourceTypes.Wood:
+                    case ResourceScript.ResourceTypes.Wood:
                         resourceManager.wood += heldResource;
                         DroppingOff();
                         break;
@@ -132,7 +130,7 @@ public class Villager : BaseUnitModel
                 case "Ground":
                     if (targetNode != null)
                     {
-                        targetNode.GetComponent<NodeManager>().gatherers--;
+                        targetNode.GetComponent<ResourceScript>().gatherers--;
                     }
                     isGathering = false;
                     actionList.Move(agent, hit);
@@ -163,15 +161,15 @@ public class Villager : BaseUnitModel
         
         if (!isGatherer)
         {
-            targetNode.GetComponent<NodeManager>().gatherers++;
+            targetNode.GetComponent<ResourceScript>().gatherers++;
             isGatherer = true;
         }
-        heldRecoursesType = targetNode.GetComponent<NodeManager>().resourceType;
+        heldRecoursesType = targetNode.GetComponent<ResourceScript>().resourceType;
     }
 
     private void DeliverResource()
     {
-        targetNode.GetComponent<NodeManager>().gatherers--;
+        targetNode.GetComponent<ResourceScript>().gatherers--;
         isGathering = false;
         drops = GameObject.FindGameObjectsWithTag("Drops");
         agent.destination = GetClosestDropOff(drops).transform.position;

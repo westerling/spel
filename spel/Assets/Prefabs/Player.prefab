@@ -40,6 +40,8 @@ GameObject:
   - component: {fileID: 114107027161213032}
   - component: {fileID: 114191753494641792}
   - component: {fileID: 114355176686271922}
+  - component: {fileID: 114206097771544274}
+  - component: {fileID: 114510183980304596}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -68,7 +70,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1250200336402226}
   m_LocalRotation: {x: 0.5, y: 0, z: 0, w: 0.8660254}
-  m_LocalPosition: {x: 0, y: 40, z: 0}
+  m_LocalPosition: {x: -4, y: 40, z: -46}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4030427235365248}
@@ -144,6 +146,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1398d090714b6664f820f0c9c988685e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114206097771544274
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1691597718024990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 077ee027c833154428e5991d29225375, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114355176686271922
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -167,6 +180,18 @@ MonoBehaviour:
   stoneDisplay: {fileID: 0}
   woodDisplay: {fileID: 0}
   popDisplay: {fileID: 0}
+--- !u!114 &114510183980304596
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1691597718024990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf4769be5c596e14bb31983daff9e715, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerTeam: 0
 --- !u!124 &124991704865833116
 Behaviour:
   m_ObjectHideFlags: 1

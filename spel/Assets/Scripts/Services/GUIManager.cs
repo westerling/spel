@@ -34,9 +34,9 @@ public class GUIManager : MonoBehaviour {
         nameDisplay.text = primary.objectname;
 
         healthDisplay.text = "" + primary.health;
-        atkDisplay.text = "" + primary.atk;
-        hArmDisplay.text = "" + primary.hArm;
-        pArmkDisplay.text = "" + primary.pArm;
+        //atkDisplay.text = "" + primary.atk;
+        //hArmDisplay.text = "" + primary.hArm;
+        //pArmkDisplay.text = "" + primary.pArm;
 
         if (primary.isSelected)
         {

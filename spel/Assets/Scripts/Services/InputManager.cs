@@ -35,6 +35,8 @@ public class InputManager : MonoBehaviour {
 
     private Rect selectBox;
 
+    private ArmyScript army;
+
     public Texture boxTexture;
 
     private ObjectInfo selectedInfo;
@@ -119,6 +121,7 @@ public class InputManager : MonoBehaviour {
                     UnselectAll();
                         break;
                 case "Selectable":
+                case "Building":
                     UnselectAll();
                     selectedObject = hit.collider.gameObject;
                     selectedInfo = selectedObject.GetComponent<ObjectInfo>();

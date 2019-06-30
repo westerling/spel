@@ -5,4 +5,6 @@ using UnityEngine;
 public class PlayerInfo : MonoBehaviour {
 
     public Team playerTeam;
+
+    public ResourceManager resources;
 }

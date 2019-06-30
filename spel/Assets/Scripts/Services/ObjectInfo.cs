@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 using System.Collections.Generic;
 
 public class ObjectInfo : MonoBehaviour {
@@ -19,6 +20,8 @@ public class ObjectInfo : MonoBehaviour {
 
     GameObject targetNode;
     GameObject[] drops;
+
+    public Image ObjectImage;
 
     public Team unitTeam;
 

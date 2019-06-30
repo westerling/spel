@@ -7,5 +7,6 @@ public enum Team
     Blue,
     Red,
     Yellow,
-    Green
+    Green,
+    Unassigned
 }

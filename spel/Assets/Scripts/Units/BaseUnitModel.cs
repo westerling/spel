@@ -10,4 +10,16 @@ public class BaseUnitModel : MonoBehaviour {
     public ActionList actionList;
     public NavMeshAgent agent;
     public UpgradeHandler upgradeHandler;
+    public ResourceManager resourceManager;
+
+    public void SpawnUnit()
+    {
+
+    }
+
+    public void KillUnit()
+    {
+
+    }
 }
+

@@ -11,6 +11,8 @@ public class ResourceManager : MonoBehaviour {
     public float food;
     public float population;
 
+    public GameObject[] armyList;
+
     public float maxPopulation;
     public float maxResources;
 
@@ -24,10 +26,10 @@ public class ResourceManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         ResourceEqualiser();
-        updateUIElement();
+        UpdateUIElement();
     }
 
-    void updateUIElement()
+    void UpdateUIElement()
     {
         foodDisplay.text = "" + food;
         goldDisplay.text = "" + gold;

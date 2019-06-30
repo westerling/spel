@@ -5,8 +5,7 @@ using UnityEngine;
 using UnityEngine.AI;
 
 public class Villager : BaseUnitModel
-{    
-    public ResourceManager resourceManager;
+{   
     public ResourceScript.ResourceTypes heldRecoursesType;
 
     public int heldResource;
@@ -103,6 +102,11 @@ public class Villager : BaseUnitModel
     }
     GameObject GetClosestDropOff(GameObject[] dropOffs)
     {
+        if (dropOffs == null)
+        {
+            return null;
+        }
+
         GameObject closestDrop = null;
         float closestDistance = Mathf.Infinity;
         Vector3 position = transform.position;

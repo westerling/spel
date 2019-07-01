@@ -30,18 +30,19 @@ public class RTSManager : MonoBehaviour
 
         foreach(var p in players)
         {
-            foreach (var u in p.startingUnits)
+            foreach (var u in p.StartingUnits)
             {
-                var go = (GameObject)GameObject.Instantiate(u, p.location.position, p.location.rotation);
+                var go = (GameObject)GameObject.Instantiate(u, p.Location.position, p.Location.rotation);
                 var player = go.AddComponent<Player>();
                 player.info = p;
-                if(!p.isAI)
+                if(!p.IsAi)
                 {
                     if(Player.defaultPlayer == null)
                     {
                         Player.defaultPlayer = p;
                     }
                     go.AddComponent<RightClickNavigation>();
+                    go.AddComponent<ActionSelect>();
                 }
             }
         }

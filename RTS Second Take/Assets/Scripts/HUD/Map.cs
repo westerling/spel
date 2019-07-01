@@ -1,45 +1,43 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.UI;
+using System.Collections;
 
-public class Map : MonoBehaviour
-{
+public class Map : MonoBehaviour {
 
-    public RectTransform viewPort;
-    public Transform corner1, corner2;
-    public GameObject blipPrefab;
-    public static Map Current;
+	public RectTransform ViewPort;
+	public Transform Corner1, Corner2;
+	public GameObject BlipPrefab;
+	public static Map Current;
 
-    private Vector2 terrainSize;
-    private RectTransform mapRect;
+	private Vector2 terrainSize; 
 
-    public Map()
-    {
-        Current = this;
-    }
+	private RectTransform mapRect;
 
-    void Start()
-    {
-        terrainSize = new Vector2(
-            corner2.position.x - corner1.position.x,
-            corner2.position.z - corner1.position.z);
+	public Map()
+	{
+		Current = this;
+	}
 
-        mapRect = GetComponent<RectTransform>();
-    }
+	// Use this for initialization
+	void Start () {
+		terrainSize = new Vector2 (
+			Corner2.position.x - Corner1.position.x,
+			Corner2.position.z - Corner1.position.z);
 
-    public Vector2 WorldPositionToMap(Vector3 point)
-    {
-        var pos = point - corner1.position;
+		mapRect = GetComponent<RectTransform> ();
+	}
 
-        var mapPos = new Vector2(
-            point.x / terrainSize.x * mapRect.rect.width,
-            point.z / terrainSize.y * mapRect.rect.height);
-
-        return mapPos;
-    }
-
-    void Update()
-    {
-        viewPort.position = WorldPositionToMap(Camera.main.transform.position);     
-    }
+	public Vector2 WorldPositionToMap(Vector3 point)
+	{
+		var pos = point - Corner1.position;
+		var mapPos = new Vector2 (
+			point.x / terrainSize.x * mapRect.rect.width,
+			point.z / terrainSize.y * mapRect.rect.height);
+		return mapPos;
+	}
+	
+	// Update is called once per frame
+	void Update () {
+		ViewPort.position = WorldPositionToMap (Camera.main.transform.position);
+	}
 }

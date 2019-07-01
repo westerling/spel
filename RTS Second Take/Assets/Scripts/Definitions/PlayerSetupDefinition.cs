@@ -1,27 +1,22 @@
-﻿using System.Collections;
+﻿using UnityEngine;
 using System.Collections.Generic;
-using UnityEngine;
 
 [System.Serializable]
-public class PlayerSetupDefenition 
-{
-    public string name;
+public class PlayerSetupDefenition  {
 
-    public Transform location;
+	public string Name;
 
-    public Color AccentColor;
+	public Transform Location;
 
-    public List<GameObject> startingUnits = new List<GameObject>();
+	public Color AccentColor;
 
-    private List<GameObject> activeUnits = new List<GameObject>();
+	public List<GameObject> StartingUnits = new List<GameObject>();
 
-    public List<GameObject> ActiveUnits { get { return activeUnits; } }
+	private List<GameObject> activeUnits = new List<GameObject> ();
 
-    public bool isAI;
-    public float credits;
+	public List<GameObject> ActiveUnits { get { return activeUnits; } }
 
+	public bool IsAi;
 
-
-    
-    
+	public float Credits;
 }
